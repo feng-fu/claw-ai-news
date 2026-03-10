@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign posts = site.daily | sort: 'date' | reverse %}
+{% assign posts = site.pages | where_exp: 'p', "p.path contains 'daily/'" | sort: 'date' | reverse %}
 {% assign latest = posts.first %}
 <div class="wrap">
   <header class="hero">

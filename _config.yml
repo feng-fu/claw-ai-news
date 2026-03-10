@@ -6,13 +6,8 @@ baseurl: "/claw-ai-news"
 markdown: kramdown
 kramdown:
   input: GFM
-collections:
-  daily:
-    output: true
-    permalink: /daily/:name/
 defaults:
   - scope:
-      path: ""
-      type: daily
+      path: "daily"
     values:
       layout: daily
