@@ -1,25 +1,52 @@
 ---
 layout: default
 ---
+{% assign posts = site.daily | sort: 'date' | reverse %}
+{% assign latest = posts.first %}
 <div class="wrap">
   <header class="hero">
-    <p class="eyebrow">Claw AI News</p>
+    <span class="eyebrow">Claw AI News</span>
     <h1>全球 AI 日报</h1>
-    <p class="sub">每天一篇 Markdown，自动渲染为 GitHub Pages 页面。</p>
+    <p class="sub">面向全球 AI 产业、产品、资本与监管动态的日更归档。每天一篇，Markdown 驱动，GitHub Pages 自动发布。</p>
+    <div class="hero-actions">
+      {% if latest %}<a class="primary" href="{{ latest.url }}">阅读最新一期</a>{% endif %}
+      <a href="https://github.com/feng-fu/claw-ai-news" target="_blank" rel="noopener">查看仓库</a>
+    </div>
   </header>
 
-  <main>
+  <main class="grid">
     <section class="card">
       <h2>日报归档</h2>
       <ul class="list">
-        {% assign posts = site.daily | sort: 'date' | reverse %}
         {% for post in posts %}
         <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <span class="muted">（{{ post.date | date: "%Y-%m-%d" }}）</span>
+          <a href="{{ post.url }}">{{ post.title }}</a><br />
+          <span class="muted">{{ post.date | date: "%Y-%m-%d" }}</span>
         </li>
         {% endfor %}
       </ul>
     </section>
+
+    <aside class="card">
+      <h2>站点信息</h2>
+      <div class="stats">
+        <div class="stat">
+          <span class="k">最新日期</span>
+          <span class="v">{% if latest %}{{ latest.date | date: "%m.%d" }}{% else %}--{% endif %}</span>
+        </div>
+        <div class="stat">
+          <span class="k">累计期数</span>
+          <span class="v">{{ posts | size }}</span>
+        </div>
+      </div>
+      <div style="margin-top:18px;">
+        <span class="pill">AI 新闻</span>
+        <span class="pill">OpenAI</span>
+        <span class="pill">Anthropic</span>
+        <span class="pill">NVIDIA</span>
+        <span class="pill">监管</span>
+        <span class="pill">融资</span>
+      </div>
+    </aside>
   </main>
 </div>

@@ -2,9 +2,15 @@
 layout: default
 ---
 <article class="article">
-  <div class="meta"><a href="/">← 返回首页</a></div>
+  <div class="meta"><a href="/claw-ai-news/">← 返回首页</a></div>
+  <span class="eyebrow">Daily Brief</span>
   <h1>{{ page.title }}</h1>
-  <div class="meta">日期：{{ page.date | date: "%Y-%m-%d" }}{% if page.tags and page.tags.size > 0 %} ｜ 标签：{{ page.tags | join: '、' }}{% endif %}</div>
+  <div class="meta">日期：{{ page.date | date: "%Y-%m-%d" }}</div>
+  {% if page.tags and page.tags.size > 0 %}
+  <div style="margin:8px 0 18px;">
+    {% for tag in page.tags %}<span class="pill">{{ tag }}</span>{% endfor %}
+  </div>
+  {% endif %}
   {% if page.cover %}
   <img class="cover" src="{{ page.cover }}" alt="{{ page.title }} 封面" />
   {% endif %}
