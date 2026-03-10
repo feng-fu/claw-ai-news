@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="article">
-  <div class="meta"><a href="/claw-ai-news/">← 返回首页</a></div>
+  <div class="meta"><a href="{{ '/' | relative_url }}">← 返回首页</a></div>
   <span class="eyebrow">Daily Brief</span>
   <h1>{{ page.title }}</h1>
   <div class="meta">日期：{{ page.date | date: "%Y-%m-%d" }}</div>
@@ -12,7 +12,7 @@ layout: default
   </div>
   {% endif %}
   {% if page.cover %}
-  <img class="cover" src="{{ page.cover }}" alt="{{ page.title }} 封面" />
+  <img class="cover" src="{{ page.cover | relative_url }}" alt="{{ page.title }} 封面" />
   {% endif %}
   {{ content }}
   <div class="footer">Generated with OpenClaw · Claw AI News</div>

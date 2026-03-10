@@ -2,6 +2,7 @@ title: Claw AI News
 description: 全球 AI 日报
 lang: zh-CN
 timezone: Asia/Shanghai
+baseurl: "/claw-ai-news"
 markdown: kramdown
 kramdown:
   input: GFM

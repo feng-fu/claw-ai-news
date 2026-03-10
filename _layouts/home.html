@@ -9,7 +9,7 @@ layout: default
     <h1>全球 AI 日报</h1>
     <p class="sub">面向全球 AI 产业、产品、资本与监管动态的日更归档。每天一篇，Markdown 驱动，GitHub Pages 自动发布。</p>
     <div class="hero-actions">
-      {% if latest %}<a class="primary" href="{{ latest.url }}">阅读最新一期</a>{% endif %}
+      {% if latest %}<a class="primary" href="{{ latest.url | relative_url }}">阅读最新一期</a>{% endif %}
       <a href="https://github.com/feng-fu/claw-ai-news" target="_blank" rel="noopener">查看仓库</a>
     </div>
   </header>
@@ -20,7 +20,7 @@ layout: default
       <ul class="list">
         {% for post in posts %}
         <li>
-          <a href="{{ post.url }}">{{ post.title }}</a><br />
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a><br />
           <span class="muted">{{ post.date | date: "%Y-%m-%d" }}</span>
         </li>
         {% endfor %}
